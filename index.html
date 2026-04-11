@@ -21,13 +21,10 @@
       --charcoal: #1A1A1A;
       --white: #FFFFFF;
       --light-gray: #f5f5f7;
-      --soft-charcoal: #2c2c2c;
       --transition: all 0.25s ease;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Montserrat', 'Poppins', sans-serif;
@@ -37,49 +34,12 @@
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4 {
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
+    h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; }
 
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 2rem;
-    }
-
-    /* ----- TOP BAR (charcoal) ----- */
-    .top-bar {
-      background-color: var(--charcoal);
-      color: var(--white);
-      padding: 0.6rem 0;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .top-bar .container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .top-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .top-info i, .top-contact i {
-      color: var(--red);
-      margin-right: 8px;
-    }
-
-    .top-contact {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
     }
 
     /* ----- MAIN NAV ----- */
@@ -107,25 +67,20 @@
     }
 
     .logo-img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       object-fit: contain;
       border-radius: 16px;
     }
 
     .logo-text {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
-    .logo-text .red {
-      color: var(--red);
-    }
-
-    .logo-text .charcoal {
-      color: var(--charcoal);
-    }
+    .logo-text .red { color: var(--red); }
+    .logo-text .charcoal { color: var(--charcoal); }
 
     .nav-links {
       display: flex;
@@ -142,11 +97,8 @@
       cursor: pointer;
     }
 
-    .nav-links a:hover {
-      color: var(--red);
-    }
+    .nav-links a:hover { color: var(--red); }
 
-    /* Mobile menu button */
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -156,7 +108,7 @@
       cursor: pointer;
     }
 
-    /* ----- SLIDER (HERO) ----- */
+    /* ----- SLIDER ----- */
     .hero-slider {
       position: relative;
       width: 100%;
@@ -227,13 +179,9 @@
       transition: var(--transition);
       display: inline-block;
       text-decoration: none;
-      border: 1px solid transparent;
     }
 
-    .btn-red:hover {
-      background: #a01828;
-      transform: scale(1.02);
-    }
+    .btn-red:hover { background: #a01828; transform: scale(1.02); }
 
     .slider-arrow {
       position: absolute;
@@ -255,11 +203,7 @@
       transition: var(--transition);
     }
 
-    .slider-arrow:hover {
-      background: var(--red);
-      border-color: var(--red);
-    }
-
+    .slider-arrow:hover { background: var(--red); border-color: var(--red); }
     .arrow-left { left: 3%; }
     .arrow-right { right: 3%; }
 
@@ -283,29 +227,18 @@
       border: 1px solid rgba(255,255,255,0.7);
     }
 
-    .dot.active {
-      background: var(--red);
-      width: 30px;
-      border-color: var(--red);
-    }
+    .dot.active { background: var(--red); width: 30px; border-color: var(--red); }
 
-    /* ----- SECTIONS ----- */
-    section {
-      scroll-margin-top: 100px;
-    }
+    section { scroll-margin-top: 100px; }
 
-    /* ----- ABOUT SECTION ----- */
-    .about-section {
-      padding: 5rem 0;
-    }
-
+    /* ----- ABOUT ----- */
+    .about-section { padding: 5rem 0; }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
-
     .about-image img {
       width: 100%;
       height: auto;
@@ -315,18 +248,9 @@
       object-fit: cover;
       aspect-ratio: 5/4;
     }
-
-    .about-text h2 {
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-    }
+    .about-text h2 { font-size: 2.8rem; margin-bottom: 1.5rem; }
     .about-text h2 span { color: var(--red); }
-    .about-text p {
-      color: #444;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
+    .about-text p { color: #444; font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7; }
     .btn-outline-red {
       background: transparent;
       border: 2px solid var(--red);
@@ -339,21 +263,11 @@
       display: inline-block;
       text-decoration: none;
     }
-    .btn-outline-red:hover {
-      background: var(--red);
-      color: white;
-    }
+    .btn-outline-red:hover { background: var(--red); color: white; }
 
-    /* ----- SERVICES + AREAS grid ----- */
-    .services-section {
-      background: var(--light-gray);
-      padding: 5rem 0;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
+    /* ----- SERVICES ----- */
+    .services-section { background: var(--light-gray); padding: 5rem 0; }
+    .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 1rem; }
     .title-underline {
       width: 80px;
       height: 4px;
@@ -377,10 +291,7 @@
       transition: transform 0.3s;
     }
     .service-card:hover { transform: translateY(-8px); }
-    .service-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-    }
+    .service-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
     .service-card h3 { font-size: 1.8rem; margin-bottom: 1.2rem; }
     .service-card p { margin-bottom: 1.5rem; opacity: 0.9; }
     .service-btn {
@@ -397,37 +308,31 @@
     }
     .service-btn:hover { background: var(--red); }
 
-    /* service areas chips */
-    .areas-container {
-      margin-top: 4rem;
+    .areas-container { margin-top: 4rem; text-align: center; }
+    .areas-title { font-size: 1.8rem; margin-bottom: 2rem; color: var(--charcoal); }
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .city-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.8rem 1rem;
       text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: transform 0.3s;
     }
-    .areas-title {
-      font-size: 1.8rem;
-      margin-bottom: 1.8rem;
-      color: var(--charcoal);
-    }
-    .city-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .city-badge {
-      background: var(--charcoal);
-      color: white;
-      padding: 0.9rem 2rem;
-      border-radius: 60px;
-      font-weight: 700;
-      border-left: 5px solid var(--red);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    }
+    .city-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(190,30,45,0.15); border-color: var(--red); }
+    .city-card i { font-size: 2.5rem; color: var(--red); margin-bottom: 0.8rem; }
+    .city-card .city-code { font-size: 2rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.3rem; }
+    .city-card .city-name { font-size: 1.1rem; color: #666; font-weight: 500; }
 
-    /* ----- MID CTA + FAQ ----- */
-    .mid-cta-faq {
-      padding: 5rem 0;
-      background: white;
-    }
+    /* ----- FAQ ----- */
+    .mid-cta-faq { padding: 5rem 0; background: white; }
     .mid-wrapper {
       display: grid;
       grid-template-columns: 1.2fr 0.9fr;
@@ -439,12 +344,7 @@
       overflow: hidden;
       box-shadow: 0 20px 30px rgba(0,0,0,0.1);
     }
-    .box-image-cta img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      min-height: 320px;
-    }
+    .box-image-cta img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; }
     .moverte-badge {
       position: absolute;
       bottom: 30px;
@@ -455,7 +355,6 @@
       border-radius: 60px;
       font-weight: 800;
       font-size: 1.6rem;
-      letter-spacing: 2px;
     }
     .call-now-box {
       margin-top: 1.8rem;
@@ -465,13 +364,9 @@
       background: var(--light-gray);
       padding: 1.2rem 1.8rem;
       border-radius: 60px;
+      cursor: pointer;
     }
-    .call-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--charcoal);
-    }
-
+    .call-number { font-size: 2rem; font-weight: 800; color: var(--charcoal); }
     .faq-block h3 { font-size: 2rem; margin-bottom: 1.8rem; }
     .accordion-item {
       background: white;
@@ -508,16 +403,13 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1.5fr;
+      grid-template-columns: 1.5fr 1fr 1.8fr;
       gap: 3rem;
     }
     .footer-logo h3 { font-size: 2rem; margin-bottom: 1rem; }
     .footer-logo .red { color: var(--red); }
     .mission { opacity: 0.85; margin: 1.2rem 0 1.8rem; }
-    .social-icons {
-      display: flex;
-      gap: 1.2rem;
-    }
+    .social-icons { display: flex; gap: 1.2rem; }
     .social-icons a {
       background: rgba(255,255,255,0.08);
       width: 44px;
@@ -547,6 +439,7 @@
       align-items: center;
       gap: 12px;
       color: #ddd;
+      font-size: 1.05rem;
     }
     .contact-list i {
       width: 24px;
@@ -568,75 +461,51 @@
       opacity: 0.8;
     }
 
-    /* ----- FLOATING BUTTONS ----- */
+    /* ----- FLOATING BUTTONS (WhatsApp & Facebook) ----- */
     .float-wa, .float-fb {
       position: fixed;
       right: 24px;
-      width: 56px;
-      height: 56px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 2rem;
+      font-size: 2.2rem;
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
       z-index: 999;
       transition: 0.2s;
       text-decoration: none;
+      cursor: pointer;
     }
-    .float-wa {
-      bottom: 140px;
-      background: #25D366;
-    }
-    .float-fb {
-      bottom: 70px;
-      background: #1877F2;
-    }
-    .float-wa:hover, .float-fb:hover {
-      transform: scale(1.08);
-    }
+    .float-wa { bottom: 150px; background: #25D366; }
+    .float-fb { bottom: 75px; background: #1877F2; }
+    .float-wa:hover, .float-fb:hover { transform: scale(1.1); }
 
-    /* Delivery man floating image */
+    /* Delivery man floating image - BIG */
     .delivery-float {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      width: 180px;
-      height: 180px;
+      width: 220px;
+      height: 220px;
       z-index: 997;
-      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.35));
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
       cursor: pointer;
       transition: transform 0.3s, opacity 0.5s;
       opacity: 0;
       pointer-events: none;
     }
-    .delivery-float.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .delivery-float:hover {
-      transform: scale(1.05);
-    }
-    .delivery-float img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    .delivery-float.visible { opacity: 1; pointer-events: auto; }
+    .delivery-float:hover { transform: scale(1.08); }
+    .delivery-float img { width: 100%; height: 100%; object-fit: contain; }
 
-    /* ----- RESPONSIVE DESIGN FOR SMARTPHONES ----- */
+    /* ----- RESPONSIVE ----- */
     @media (max-width: 900px) {
       .container { padding: 0 1.5rem; }
-      
-      .nav-container { 
-        flex-direction: row; 
-        flex-wrap: nowrap;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
+      .nav-container { flex-direction: row; flex-wrap: nowrap; }
+      .mobile-menu-btn { display: block; }
       .nav-links {
         display: none;
         position: absolute;
@@ -649,109 +518,63 @@
         gap: 1rem;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         border-top: 1px solid #eee;
+        z-index: 100;
       }
-      
-      .nav-links.active {
-        display: flex;
-      }
-      
-      .nav-links a {
-        padding: 0.8rem;
-        width: 100%;
-        text-align: center;
-      }
-
-      .logo-img { width: 65px; height: 65px; }
-      .logo-text { font-size: 1.2rem; }
-      
-      .top-bar .container {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-      }
-      .top-info, .top-contact {
-        justify-content: center;
-        gap: 1rem;
-      }
-
+      .nav-links.active { display: flex; }
+      .nav-links a { padding: 0.8rem; width: 100%; text-align: center; }
+      .logo-img { width: 80px; height: 80px; }
+      .logo-text { font-size: 1.1rem; }
       .hero-slider { height: 70vh; min-height: 500px; }
       .slide-content { left: 5%; right: 5%; }
       .slide-content h1 { font-size: 2.5rem; }
       .slide-content p { font-size: 1rem; }
-
-      .about-grid, 
-      .services-grid, 
-      .mid-wrapper, 
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
+      .about-grid, .services-grid, .mid-wrapper, .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .city-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .about-text h2 { font-size: 2.2rem; }
       .section-title { font-size: 2.2rem; }
-
       .service-card { padding: 2rem 1.5rem; }
       .service-card h3 { font-size: 1.5rem; }
-
-      .city-badge { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
-
       .call-number { font-size: 1.5rem; }
       .call-now-box { flex-wrap: wrap; text-align: center; justify-content: center; }
-
-      .delivery-float { width: 120px; height: 120px; bottom: 15px; left: 10px; }
-      .float-wa, .float-fb { width: 48px; height: 48px; font-size: 1.6rem; right: 16px; }
-      .float-wa { bottom: 120px; }
-      .float-fb { bottom: 60px; }
-
+      .delivery-float { width: 160px; height: 160px; bottom: 15px; left: 10px; }
+      .float-wa, .float-fb { width: 50px; height: 50px; font-size: 1.8rem; right: 16px; }
+      .float-wa { bottom: 130px; }
+      .float-fb { bottom: 65px; }
       .slider-arrow { width: 40px; height: 40px; font-size: 1.3rem; }
     }
 
     @media (max-width: 560px) {
       .slide-content h1 { font-size: 2rem; }
       .btn-red { padding: 0.8rem 1.8rem; font-size: 1rem; }
-      
-      .logo-img { width: 55px; height: 55px; }
+      .logo-img { width: 70px; height: 70px; }
       .logo-text { font-size: 1rem; }
-      
       .about-section, .services-section, .mid-cta-faq { padding: 3rem 0; }
-      
-      .city-badges { gap: 0.7rem; }
-      .city-badge { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
-      
+      .city-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .city-card { padding: 1.2rem 0.5rem; }
+      .city-card i { font-size: 2rem; }
+      .city-card .city-code { font-size: 1.5rem; }
+      .city-card .city-name { font-size: 0.9rem; }
       .footer { padding: 3rem 0 1.5rem; }
       .footer-logo h3 { font-size: 1.6rem; }
       .footer-contact h4, .footer-links h4 { font-size: 1.2rem; }
-      
-      .delivery-float { width: 100px; height: 100px; }
+      .contact-list li { font-size: 0.95rem; }
+      .delivery-float { width: 130px; height: 130px; }
+      .float-wa, .float-fb { width: 45px; height: 45px; font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="container">
-    <div class="top-info">
-      <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
-      <span><i class="fas fa-envelope"></i> luvhengomotors@gmail.com</span>
-    </div>
-    <div class="top-contact">
-      <span><i class="fas fa-phone-alt"></i> 066 224 3911</span>
-    </div>
-  </div>
-</div>
-
 <!-- MAIN NAVIGATION -->
 <header class="main-nav">
   <div class="container nav-container">
     <div class="logo-area">
-      <img class="logo-img" src="WhatsApp Image 2026-04-11 at 01.11.37 (1)_upscaled_upscaled (1).png" alt="Luvhengo Motors Logo" title="WhatsApp Image 2026-04-11 at 01.11.37 (1)_upscaled_upscaled (1).png" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'%23BE1E2D\'/%3E%3Ctext x=\'15\' y=\'65\' font-family=\'Arial\' font-weight=\'900\' font-size=\'42\' fill=\'white\'%3ELM%3C/text%3E%3C/svg%3E'">
+      <img class="logo-img" src="WhatsApp Image 2026-04-11 at 01.11.37 (1)_upscaled_upscaled (1).png" alt="Luvhengo Motors Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'%23BE1E2D\'/%3E%3Ctext x=\'15\' y=\'65\' font-family=\'Arial\' font-weight=\'900\' font-size=\'42\' fill=\'white\'%3ELM%3C/text%3E%3C/svg%3E'">
       <div class="logo-text">
         <span class="red">Luvhengo</span><span class="charcoal">Motors</span>
       </div>
     </div>
     
-    <!-- Mobile menu button -->
     <button class="mobile-menu-btn" id="mobileMenuBtn">
       <i class="fas fa-bars"></i>
     </button>
@@ -766,25 +589,25 @@
   </div>
 </header>
 
-<!-- HERO SLIDER / HOME SECTION -->
+<!-- HERO SLIDER -->
 <section id="home">
   <div class="hero-slider">
     <div class="slides-container" id="slidesContainer">
-      <div class="slide" style="background-image: url('https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=2');">
+      <div class="slide" style="background-image: url('https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=1600');">
         <div class="slide-content">
           <h1>Best Moving Service.</h1>
-          <p>Stress-free, reliable relocation for families and businesses. We treat your belongings like our own.</p>
+          <p>Stress-free, reliable relocation for families and businesses.</p>
           <a onclick="openWhatsApp()" class="btn-red">Book Now</a>
         </div>
       </div>
-      <div class="slide" style="background-image: url('https://images.pexels.com/photos/3768146/pexels-photo-3768146.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=2');">
+      <div class="slide" style="background-image: url('https://images.pexels.com/photos/3768146/pexels-photo-3768146.jpeg?auto=compress&cs=tinysrgb&w=1600');">
         <div class="slide-content">
           <h1>Trusted Professionals.</h1>
-          <p>Our team of trained movers ensures a smooth transition to your new home or office.</p>
+          <p>Our team ensures a smooth transition to your new home or office.</p>
           <a onclick="openWhatsApp()" class="btn-red">Book Now</a>
         </div>
       </div>
-      <div class="slide" style="background-image: url('https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=2');">
+      <div class="slide" style="background-image: url('https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=1600');">
         <div class="slide-content">
           <h1>Moving Made Simple.</h1>
           <p>From packing to unpacking — we handle every detail with care.</p>
@@ -804,11 +627,11 @@
 <section id="about" class="about-section">
   <div class="container about-grid">
     <div class="about-image">
-      <img src="WhatsApp Image 2026-04-11 at 01.11.35_upscaled.png" alt="Luvhengo Motors Team" title="WhatsApp Image 2026-04-11 at 01.11.35_upscaled.png" onerror="this.src='https://images.pexels.com/photos/3768146/pexels-photo-3768146.jpeg?auto=compress&cs=tinysrgb&w=800'">
+      <img src="WhatsApp Image 2026-04-11 at 01.11.35_upscaled.png" alt="Luvhengo Motors Team" onerror="this.src='https://images.pexels.com/photos/3768146/pexels-photo-3768146.jpeg?auto=compress&cs=tinysrgb&w=800'">
     </div>
     <div class="about-text">
       <h2>We Are <span>Luvhengo Motors</span></h2>
-      <p>With over a decade of experience across South Africa, we've built a reputation for careful, timely moving. Our trained teams handle everything from delicate antiques to bulky furniture, making your move exciting — not exhausting.</p>
+      <p>With over a decade of experience across South Africa, we've built a reputation for careful, timely moving. Our trained teams handle everything from delicate antiques to bulky furniture.</p>
       <a onclick="scrollToSection('contact')" class="btn-outline-red">Contact Us</a>
     </div>
   </div>
@@ -821,35 +644,34 @@
     <div class="title-underline"></div>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon"><i class="fas fa-home"></i> <i class="fas fa-truck" style="color:var(--red); margin-left:6px;"></i></div>
+        <div class="service-icon"><i class="fas fa-home"></i> <i class="fas fa-truck" style="color:var(--red);"></i></div>
         <h3>Residential Moves</h3>
-        <p>Local home moving with packing & unpacking options. Friendly crews, transparent pricing.</p>
+        <p>Local home moving with packing & unpacking options.</p>
         <a onclick="openWhatsApp()" class="service-btn">Book Now</a>
       </div>
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-building"></i> <i class="fas fa-clock" style="color:var(--red);"></i></div>
         <h3>Office Relocation</h3>
-        <p>Minimize downtime with efficient commercial moving. We plan around your schedule.</p>
+        <p>Minimize downtime with efficient commercial moving.</p>
         <a onclick="openWhatsApp()" class="service-btn">Book Now</a>
       </div>
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-map-marked-alt"></i> <i class="fas fa-route" style="color:var(--red);"></i></div>
         <h3>Long Distance Moves</h3>
-        <p>Safe, reliable cross-country moving. Tracking and dedicated support.</p>
+        <p>Safe, reliable cross-country moving with tracking.</p>
         <a onclick="openWhatsApp()" class="service-btn">Book Now</a>
       </div>
     </div>
 
-    <!-- service locations -->
     <div class="areas-container">
       <h3 class="areas-title">📍 We move across South Africa</h3>
-      <div class="city-badges">
-        <span class="city-badge">JHB · Johannesburg</span>
-        <span class="city-badge">DBN · Durban</span>
-        <span class="city-badge">CPT · Cape Town</span>
-        <span class="city-badge">PLK · Polokwane</span>
-        <span class="city-badge">EL · East London</span>
-        <span class="city-badge">BFN · Bloemfontein</span>
+      <div class="city-grid">
+        <div class="city-card"><i class="fas fa-city"></i><div class="city-code">JHB</div><div class="city-name">Johannesburg</div></div>
+        <div class="city-card"><i class="fas fa-umbrella-beach"></i><div class="city-code">DBN</div><div class="city-name">Durban</div></div>
+        <div class="city-card"><i class="fas fa-mountain"></i><div class="city-code">CPT</div><div class="city-name">Cape Town</div></div>
+        <div class="city-card"><i class="fas fa-tree"></i><div class="city-code">PLK</div><div class="city-name">Polokwane</div></div>
+        <div class="city-card"><i class="fas fa-ship"></i><div class="city-code">EL</div><div class="city-name">East London</div></div>
+        <div class="city-card"><i class="fas fa-flower"></i><div class="city-code">BFN</div><div class="city-name">Bloemfontein</div></div>
       </div>
     </div>
   </div>
@@ -860,23 +682,23 @@
   <div class="container">
     <h2 class="section-title">Latest News & Tips</h2>
     <div class="title-underline"></div>
-    <div class="services-grid" style="margin-bottom: 2rem;">
+    <div class="services-grid">
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-newspaper"></i></div>
         <h3>Moving Tips 2026</h3>
-        <p>5 essential tips to make your move stress-free and organized.</p>
+        <p>5 essential tips to make your move stress-free.</p>
         <a onclick="openWhatsApp()" class="service-btn">Learn More</a>
       </div>
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-box"></i></div>
         <h3>Packing Guide</h3>
-        <p>How to pack fragile items safely for long distance moves.</p>
+        <p>How to pack fragile items safely for long moves.</p>
         <a onclick="openWhatsApp()" class="service-btn">Read Guide</a>
       </div>
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-calendar"></i></div>
         <h3>Holiday Special</h3>
-        <p>Book your move this season and get 10% off all services.</p>
+        <p>Book your move this season and get 10% off.</p>
         <a onclick="openWhatsApp()" class="service-btn">Claim Offer</a>
       </div>
     </div>
@@ -891,36 +713,46 @@
         <img src="https://images.pexels.com/photos/4246109/pexels-photo-4246109.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stacked boxes">
         <div class="moverte-badge">Moverte</div>
       </div>
-      <div class="call-now-box">
+      <div class="call-now-box" onclick="openWhatsApp()">
         <i class="fas fa-phone-alt" style="font-size:2.2rem; color:var(--red);"></i>
         <span class="call-number">066 224 3911</span>
-        <span style="margin-left: auto; font-weight: 600;" onclick="openWhatsApp()" style="cursor:pointer;">Call Us Today</span>
+        <span style="margin-left: auto; font-weight: 600;">Call Us Today</span>
       </div>
     </div>
     <div class="faq-block">
       <h3>Frequently Asked Questions</h3>
       <div class="accordion">
-        <div class="accordion-item">
-          <div class="accordion-header">How far in advance should I book? <i class="fas fa-plus"></i></div>
-          <div class="accordion-content"><p>We recommend booking at least 2-3 weeks ahead for local moves, 4-6 weeks for long distance.</p></div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Do you offer packing supplies? <i class="fas fa-plus"></i></div>
-          <div class="accordion-content"><p>Yes! We sell high-quality boxes and protective materials, or choose our full packing service.</p></div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Are you licensed and insured? <i class="fas fa-plus"></i></div>
-          <div class="accordion-content"><p>Absolutely. Luvhengo Motors is fully licensed and carries comprehensive cargo insurance.</p></div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">What areas do you serve? <i class="fas fa-plus"></i></div>
-          <div class="accordion-content"><p>Johannesburg, Durban, Cape Town, Polokwane, East London, Bloemfontein and long distance.</p></div>
-        </div>
+        <div class="accordion-item"><div class="accordion-header">How far in advance should I book? <i class="fas fa-plus"></i></div><div class="accordion-content"><p>2-3 weeks for local, 4-6 weeks for long distance.</p></div></div>
+        <div class="accordion-item"><div class="accordion-header">Do you offer packing supplies? <i class="fas fa-plus"></i></div><div class="accordion-content"><p>Yes! High-quality boxes and protective materials.</p></div></div>
+        <div class="accordion-item"><div class="accordion-header">Are you licensed and insured? <i class="fas fa-plus"></i></div><div class="accordion-content"><p>Absolutely. Fully licensed and insured.</p></div></div>
+        <div class="accordion-item"><div class="accordion-header">What areas do you serve? <i class="fas fa-plus"></i></div><div class="accordion-content"><p>JHB, DBN, CPT, PLK, EL, BFN and long distance.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT SECTION / FOOTER -->
+<!-- FOOTER / CONTACT -->
 <footer id="contact" class="footer">
-  <div
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <h3><span class="red">Luvhengo</span> Motors</h3>
+        <p class="mission">Reliable moving with a personal touch. We're committed to making your transition smooth.</p>
+        <div class="social-icons">
+          <a href="https://web.facebook.com/people/Luvhengo-Motors/100076895722932/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="scrollToSection('home')">Home</a></li>
+          <li><a onclick="scrollToSection('about')">About Us</a></li>
+          <li><a onclick="scrollToSection('services')">Services</a></li>
+          <li><a onclick="scrollToSection('news')">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Details</h4>
+        <ul class="contact-list">
+          <li><i class="fas fa-envelope"></i> luvhengomotors@gmail.com</li>
+          <li><i class="fas fa-phone-alt"></i> Call / WhatsApp: 066 224 3911</li
