@@ -2358,44 +2358,54 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            doc.setFontSize(24);
+            // Match Layout header exactly as requested
+            doc.setFontSize(20);
             doc.setTextColor(232, 0, 29);
             doc.setFont("helvetica", "bold");
-            doc.text("LUVHENGO MOTORS", 105, 22, null, "center");
-            doc.setFontSize(11);
-            doc.setTextColor(50, 50, 50);
-            doc.text("Premium Moving Solutions", 105, 30, null, "center");
-            doc.setFontSize(9);
+            doc.text("LUVHENGO MOTORS MOVING QUOTE", 105, 22, null, "center"); 
+
+            doc.setFontSize(10);
             doc.setTextColor(80, 80, 80);
-            doc.text("Gauteng Base | 066 224 3911 | luvhengomotors@gmail.com", 105, 37, null, "center");
+            doc.setFont("helvetica", "normal");
+            doc.text("Johannesburg Branch | 066 224 3911 | luvhengomotors@gmail.com", 105, 30, null, "center"); 
 
             doc.setDrawColor(200, 0, 0);
-            doc.line(10, 42, 200, 42);
+            doc.line(10, 35, 200, 35);
+
+            // Client Info Layout
             doc.setFontSize(11);
             doc.setTextColor(0);
-            doc.text(`QUOTE REF: LVM-${Date.now().toString().slice(-6)}`, 14, 52);
-            doc.text(`Date: ${new Date().toLocaleDateString()}`, 140, 52);
+            
+            doc.setFont(undefined, "bold");
+            doc.text("Client:", 14, 45); 
+            doc.setFont(undefined, "normal");
+            doc.text(`${clientName}`, 30, 45);
 
             doc.setFont(undefined, "bold");
-            doc.text("CLIENT:", 14, 65);
+            doc.text("Pickup:", 14, 52); 
             doc.setFont(undefined, "normal");
-            doc.text(`${clientName}`, 14, 72);
+            doc.text(`${pickupAddr}`, 30, 52);
 
             doc.setFont(undefined, "bold");
-            doc.text("ROUTE:", 14, 85);
+            doc.text("Drop-off:", 14, 59); 
             doc.setFont(undefined, "normal");
-            doc.text(`Pickup: ${pickupAddr} , Gauteng Province`, 14, 92);
-            doc.text(`Drop-off: ${dropAddr}, ${dropCitySel}`, 14, 99);
-            doc.text(`Moving Date: ${movingDate}`, 14, 106);
+            doc.text(`${dropAddr}, ${dropCitySel}`, 35, 59); 
+            
+            // Keep Date for Utility 
+            doc.setFont(undefined, "bold");
+            doc.text("Date:", 140, 45);
+            doc.setFont(undefined, "normal");
+            doc.text(`${movingDate}`, 155, 45);
 
+            // Table matches required headers
             const tableRows = items.map(item => [item.name, item.qty, `R${item.price.toFixed(2)}`,
                 `R${item.lineTotal.toFixed(2)}`
-            ]);
+            ]); 
 
             doc.autoTable({
-                startY: 115,
+                startY: 65,
                 head: [
-                    ['Item Description', 'Qty', 'Unit Price', 'Line Total']
+                    ['Item', 'Qty', 'Unit', 'Total'] 
                 ],
                 body: tableRows,
                 theme: 'grid',
@@ -2411,31 +2421,35 @@
                 doc.text(`R${distanceFee.toFixed(2)}`, 160, finalY, null, "right");
                 finalY += 7;
             }
-            doc.setFontSize(11);
-            doc.text(`Subtotal (items + delivery): R${baseTotal.toFixed(2)}`, 14, finalY);
             if (discountText && discountText !== "None") {
+                doc.setFontSize(11);
+                doc.text(`Subtotal: R${baseTotal.toFixed(2)}`, 14, finalY);
                 doc.setTextColor(0, 128, 0);
                 doc.text(`Discount (10%): -R${(baseTotal * 0.1).toFixed(2)}`, 14, finalY + 7);
                 doc.setTextColor(0);
+                finalY += 14;
             }
-            doc.setFontSize(14);
-            doc.setTextColor(232, 0, 29);
-            doc.text(`TOTAL DUE (VAT INCL): R${finalTotal.toFixed(2)}`, 14, finalY + 16);
 
-            doc.setFontSize(9);
-            doc.setTextColor(60);
+            // Total matches requested format
+            doc.setFontSize(12);
             doc.setFont(undefined, "bold");
-            doc.text("Banking Details (EFT Payment):", 14, finalY + 32);
+            doc.setTextColor(232, 0, 29);
+            doc.text(`GRAND TOTAL (VAT INCL): R${finalTotal.toFixed(2)}`, 14, finalY + 10); 
+
+            // Banking details match required format
+            doc.setFontSize(10);
+            doc.setTextColor(0);
+            doc.text("BANKING DETAILS:", 14, finalY + 22); 
             doc.setFont(undefined, "normal");
-            doc.text("Absa Bank | Luvhengo Motors | Acc: 4108874414 | Branch: 632005", 14, finalY + 39);
-            doc.text("Reference: Your Name + Quote Number", 14, finalY + 46);
+            doc.text("Absa Bank | Luvhengo Motors | Acc: 4108874414 | Branch: 632005", 14, finalY + 29); 
 
             doc.setFontSize(8);
             doc.setTextColor(100);
-            doc.text("Thank you for choosing Luvhengo Motors. T&Cs apply.", 105, finalY + 58, null, "center");
+            doc.text("Thank you for choosing Luvhengo Motors. T&Cs apply.", 105, finalY + 45, null, "center");
 
             const pdfBlob = doc.output('blob');
-            doc.save(`Luvhengo_Quote_${clientName.replace(/\s/g, '_')}.pdf`);
+            // Filename updated as requested 
+            doc.save(`Luvhengo_Invoice_${clientName.replace(/\s/g, '_')}.pdf`); 
             return pdfBlob;
         }
 
