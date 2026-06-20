@@ -2,145 +2,313 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connection Refining | Please Hold</title>
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --accent-color: #3b82f6; /* Professional blue */
-            --accent-glow: rgba(59, 130, 246, 0.2);
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Luvhengo Motors · Trusted Moving in SA & Quotes</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --red: #BE1E2D;
+            --red-glow: #e8233a;
+            --red-dark: #8B0000;
+            --charcoal: #1A1A1A;
+            --white: #FFFFFF;
+            --bg-color: #fafbfc;
+            --bg-secondary: #f0f2f5;
+            --text-color: #1a1a1a;
+            --text-secondary: #5a5f6b;
+            --nav-bg: rgba(255, 255, 255, 0.82);
+            --nav-border: rgba(0, 0, 0, 0.06);
+            --light-gray: #f3f4f6;
+            --card-bg: #FFFFFF;
+            --card-border: rgba(0, 0, 0, 0.04);
+            --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.05), 0 8px 32px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.10), 0 20px 50px rgba(190, 30, 45, 0.06);
+            --faq-bg: #f8f9fb;
+            --transition: all 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+            --transition-fast: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+            --glass-blur: blur(16px);
+            --glow-red: 0 0 20px rgba(190, 30, 45, 0.3), 0 0 50px rgba(190, 30, 45, 0.08);
+            --glow-red-strong: 0 0 30px rgba(190, 30, 45, 0.5), 0 0 70px rgba(190, 30, 45, 0.12);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --font-main: 'Inter', 'Montserrat', 'Poppins', sans-serif;
+        }
+
+        body.dark-mode {
+            --bg-color: #080b10;
+            --bg-secondary: #0e1219;
+            --text-color: #e2e6ed;
+            --text-secondary: #9aa0b0;
+            --nav-bg: rgba(10, 13, 18, 0.85);
+            --nav-border: rgba(255, 255, 255, 0.05);
+            --light-gray: #11161e;
+            --card-bg: #11161e;
+            --card-border: rgba(255, 255, 255, 0.04);
+            --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.30), 0 8px 32px rgba(0, 0, 0, 0.20);
+            --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.45), 0 20px 50px rgba(190, 30, 45, 0.10);
+            --faq-bg: #11161e;
+            --charcoal: #e2e6ed;
+            --glow-red: 0 0 24px rgba(190, 30, 45, 0.4), 0 0 60px rgba(190, 30, 45, 0.12);
+            --glow-red-strong: 0 0 36px rgba(190, 30, 45, 0.55), 0 0 80px rgba(190, 30, 45, 0.18);
+        }
+
+        html, body {
+            scroll-behavior: smooth;
+            max-width: 100vw;
+            overflow-x: hidden;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: var(--font-main);
             background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            padding: 2rem;
-            max-width: 480px;
-            width: 100%;
-        }
-
-        /* Cool, professional animated icon */
-        .icon-container {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pulse-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--accent-color);
-            border-radius: 50%;
-            animation: pulse 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
-            opacity: 0;
-        }
-
-        .core-dot {
-            width: 24px;
-            height: 24px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            box-shadow: 0 0 20px var(--accent-color);
-        }
-
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.025em;
-        }
-
-        p {
-            color: var(--text-muted);
-            font-size: 1rem;
+            color: var(--text-color);
             line-height: 1.6;
-            margin-bottom: 2.5rem;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+            letter-spacing: -0.01em;
         }
 
-        /* Subtle, non-intrusive action button */
-        .btn {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 0.75rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(ellipse at 20% 10%, rgba(190, 30, 45, 0.025) 0%, transparent 55%),
+                        radial-gradient(ellipse at 80% 85%, rgba(190, 30, 45, 0.02) 0%, transparent 55%);
+            transition: opacity 0.4s ease;
         }
 
-        .btn:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: var(--text-muted);
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; width: 100%; }
 
-        .error-code {
-            position: absolute;
-            bottom: 2rem;
-            left: 0;
-            right: 0;
-            font-family: monospace;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.2);
-            letter-spacing: 0.1em;
+        /* Glass nav */
+        .main-nav {
+            background: var(--nav-bg);
+            backdrop-filter: var(--glass-blur);
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--nav-border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: background-color 0.4s ease;
         }
+        .nav-container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .logo-area { display: flex; align-items: center; gap: 14px; }
+        .logo-img { width: 52px; height: 52px; object-fit: contain; border-radius: 14px; }
+        .logo-text { font-size: 1.35rem; font-weight: 800; }
+        .logo-text .red { color: var(--red); }
+        .logo-text .charcoal { color: var(--text-color); transition: color 0.4s ease; }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            50% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0;
-            }
-        }
+        .nav-links { display: flex; align-items: center; gap: 1.8rem; font-weight: 600; font-size: 0.95rem; }
+        .nav-links a { text-decoration: none; color: var(--text-color); cursor: pointer; position: relative; padding: 0.35rem 0; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: var(--red); transition: width 0.3s; }
+        .nav-links a:hover { color: var(--red); }
+        .nav-links a:hover::after { width: 100%; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.7rem; color: var(--text-color); cursor: pointer; }
+        .btn-theme { background: transparent; border: none; font-size: 1.2rem; color: var(--text-color); cursor: pointer; width: 40px; height: 40px; border-radius: 50%; transition: var(--transition-fast); }
+
+        /* Hero Slider */
+        .hero-slider { position: relative; width: 100%; height: 88vh; min-height: 600px; overflow: hidden; border-radius: 0 0 40px 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); }
+        .slides-container { display: flex; width: 300%; height: 100%; transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1); }
+        .slide { width: 33.333%; height: 100%; background-size: cover; background-position: center 30%; position: relative; }
+        .slide::before { content: ""; position: absolute; inset: 0; background: linear-gradient(175deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.55) 100%); z-index: 2; }
+        .slide-content { position: absolute; top: 50%; left: 6%; transform: translateY(-50%); z-index: 5; color: white; max-width: 620px; background: transparent; padding-right: 40px; }
+        .slide-content h1 { font-size: 4rem; font-weight: 900; margin-bottom: 1rem; text-shadow: 0 8px 30px rgba(0,0,0,0.45); animation: fadeInUp 0.6s both; }
+        .slide-content p { font-size: 1.2rem; margin-bottom: 2rem; text-shadow: 0 4px 16px rgba(0,0,0,0.4); animation: fadeInUp 0.7s 0.1s both; }
+        @keyframes fadeInUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+        .btn-red { background: var(--red); color: white; border: none; padding: 1rem 2.8rem; border-radius: 60px; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 12px 28px -6px rgba(190,30,45,0.5); transition: var(--transition); display: inline-block; text-decoration: none; }
+        .btn-red:hover { background: #a01828; transform: translateY(-3px); }
+        .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.4rem; cursor: pointer; z-index: 20; transition: var(--transition); }
+        .slider-arrow:hover { background: var(--red); }
+        .arrow-left { left: 1.5%; }
+        .arrow-right { right: 1.5%; }
+        .slider-dots { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; gap: 14px; z-index: 25; }
+        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 20px; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--red); width: 32px; }
+
+        /* About, Services, Cards fix dark mode */
+        .about-section { padding: 6rem 0; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .about-image img { width: 100%; border-radius: var(--radius-xl); object-fit: cover; aspect-ratio: 5/4; }
+        .about-text h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .about-text h2 span { color: var(--red); }
+        .btn-outline-red { background: transparent; border: 2px solid var(--red); color: var(--red); padding: 0.9rem 2.6rem; border-radius: 50px; font-weight: 700; transition: var(--transition); display: inline-block; cursor: pointer; }
+        .btn-outline-red:hover { background: var(--red); color: white; }
+
+        .services-section { background: var(--bg-secondary); padding: 6rem 0; transition: background 0.4s; }
+        .section-title { text-align: center; font-size: 2.8rem; font-weight: 800; letter-spacing: -0.04em; }
+        .title-underline { width: 70px; height: 4px; background: var(--red); margin: 0 auto 4rem; border-radius: 4px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background: var(--card-bg); padding: 2.8rem 2rem; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--card-shadow); border: 1px solid var(--card-border); transition: var(--transition); cursor: pointer; position: relative; overflow: hidden; }
+        .service-card::before { content: ""; position: absolute; bottom: 0; left: 10%; right: 10%; height: 4px; background: var(--red); border-radius: 4px; transition: var(--transition); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--card-shadow-hover); }
+        .service-card h3 { font-size: 1.7rem; margin-bottom: 1rem; }
+        .service-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .service-btn { background: transparent; border: 1.5px solid var(--red); color: var(--red); padding: 0.7rem 2rem; border-radius: 40px; font-weight: 600; transition: var(--transition); cursor: pointer; display: inline-block; }
+        .service-btn:hover { background: var(--red); color: white; }
+        .areas-container { margin-top: 5rem; text-align: center; }
+        .city-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+        .city-card { background: var(--card-bg); border-radius: var(--radius-lg); padding: 1.5rem 1rem; text-align: center; box-shadow: var(--card-shadow); border: 1px solid var(--card-border); transition: var(--transition); }
+        .city-card i { font-size: 2.2rem; color: var(--red); margin-bottom: 0.8rem; }
+        .city-card .city-code { font-size: 1.8rem; font-weight: 800; color: var(--text-color); }
+        .city-card .city-name { color: var(--text-secondary); }
+
+        /* Modals */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); overflow-y: auto; animation: modalFadeIn 0.2s ease; }
+        .modal-content { background-color: var(--card-bg); margin: 5% auto; padding: 2rem; border-radius: var(--radius-xl); width: 90%; max-width: 650px; color: var(--text-color); box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; max-height: 85vh; overflow-y: auto; }
+        .close-modal { position: absolute; top: 16px; right: 18px; font-size: 1.8rem; cursor: pointer; color: var(--red); transition: var(--transition-fast); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .close-modal:hover { background: rgba(190,30,45,0.1); transform: rotate(90deg); }
+        .tips-content h3, .guide-content h3, .newsletter-content h3 { color: var(--red); margin: 1rem 0 0.5rem; font-size: 1.3rem; }
+        .tips-content p, .guide-content p, .newsletter-content p { margin-bottom: 0.8rem; line-height: 1.6; }
+        .tips-content ul, .guide-content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+
+        .quote-modal-content { padding: 0; max-width: 640px; background: transparent; box-shadow: none; width: 95%; margin: 4vh auto; overflow-y: visible; }
+        .app-wrapper { --q-red: #E8001D; --q-charcoal: #070b12; --q-panel: #0e1420; --q-text: #c8d2e2; width: 100%; max-height: 86vh; overflow-y: auto; background-color: var(--q-charcoal); color: var(--q-text); border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.03); }
+        .app-wrapper header { text-align: center; padding: 28px 18px; background: linear-gradient(180deg, #0d1425 0%, #0a0f1a 100%); border-bottom: 2px solid rgba(232,0,29,0.4); }
+        .app-wrapper header h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; color: white; font-weight: 800; }
+        .app-wrapper header h1 span { color: var(--q-red); }
+        .app-wrapper .section-card { background: var(--q-panel); margin: 14px 16px; padding: 18px 16px; border-radius: 14px; border: 1px solid rgba(232,0,29,0.2); }
+        .app-wrapper h3 { color: white; font-size: 1.2rem; margin-bottom: 14px; border-left: 3px solid var(--q-red); padding-left: 10px; text-transform: uppercase; }
+        .app-wrapper .field, .app-wrapper .city-select, .app-wrapper .custom-desc, .app-wrapper .qty-box { background: #070b14; border: 1px solid rgba(255,255,255,0.07); color: white; border-radius: 8px; padding: 12px 14px; width: 100%; }
+        .app-wrapper .static-pickup { background: #151d2b; padding: 12px; border-radius: 12px; margin-bottom: 16px; border-left: 3px solid var(--q-red); }
+        .app-wrapper .item-box { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; }
+        .app-wrapper .qty-box { width: 65px; text-align: center; padding: 7px; }
+        .app-wrapper .distance-fee-row { background: #151d2b; margin-top: 12px; padding: 12px 14px; border-radius: 10px; display: flex; justify-content: space-between; }
+        .app-wrapper .action-bar { position: sticky; bottom: 0; background: linear-gradient(180deg, rgba(10,15,26,0.95) 0%, #0a0f1a 100%); backdrop-filter: blur(12px); padding: 16px; border-top: 2px solid rgba(232,0,29,0.5); border-radius: 0 0 20px 20px; }
+        .app-wrapper .total-amt { color: white; font-size: 1.8rem; font-weight: 800; }
+        .app-wrapper .btn-submit { background: linear-gradient(135deg, #28a745 0%, #1e8c38 100%); color: white; border: none; padding: 14px; width: 100%; border-radius: 12px; font-weight: bold; cursor: pointer; }
+
+        /* FAQ Accordion - improved for click to reveal */
+        .faq-block { background: var(--card-bg); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--card-shadow); }
+        .faq-item { margin-bottom: 1rem; border-bottom: 1px solid var(--card-border); }
+        .faq-question { font-weight: 700; font-size: 1.1rem; padding: 1rem 0.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-color); transition: var(--transition-fast); }
+        .faq-question:hover { color: var(--red); }
+        .faq-question i { color: var(--red); transition: transform 0.2s; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 0.5rem; color: var(--text-secondary); line-height: 1.5; }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 1rem; }
+        .faq-item.active .faq-question i { transform: rotate(45deg); }
+
+        .footer { background: #0a0d13; color: #d5dbe5; padding: 5rem 0 2.5rem; border-top: 1px solid rgba(255,255,255,0.04); }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 3rem; }
+        .footer-logo h3 { font-size: 2rem; color: white; }
+        .footer-logo .red { color: var(--red); }
+        .social-icons { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-icons a { background: rgba(255,255,255,0.06); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition); }
+        .social-icons a:hover { background: var(--red); }
+        .contact-list li { margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+        .copyright { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; }
+        .float-wa, .float-fb { position: fixed; right: 22px; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.9rem; z-index: 999; background: #25D366; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transition: 0.2s; }
+        .float-fb { background: #1877F2; bottom: 80px; }
+        .float-wa { bottom: 150px; }
+
+        /* Adjust bottom image size */
+        .left-cta .box-image-cta img { width: 100%; max-height: 280px; object-fit: cover; border-radius: var(--radius-lg); }
+        .call-now-box { background: var(--card-bg); padding: 1rem 1.8rem; border-radius: 60px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+        
+        @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } .slide-content h1 { font-size: 2.8rem; } }
+        @media (max-width: 768px) { .mobile-menu-btn { display: block; } .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(12px); flex-direction: column; padding: 1.5rem; } .nav-links.active { display: flex; } .hero-slider { height: 70vh; } .slide-content { left: 4%; right: 4%; padding-right: 20px; } .slide-content h1 { font-size: 2rem; } .slider-arrow { width: 38px; height: 38px; font-size: 1.1rem; } .services-grid { grid-template-columns: 1fr; } .city-grid { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr; } .call-now-box { flex-direction: column; text-align: center; } .left-cta .box-image-cta img { max-height: 200px; } .section-title { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <div class="icon-container">
-            <div class="pulse-ring"></div>
-            <div class="core-dot"></div>
+    <header class="main-nav">
+        <div class="container nav-container">
+            <div class="logo-area"><img class="logo-img" src="WhatsApp Image 2026-04-11 at 01.11.37 (1)_upscaled_upscaled (1).png" alt="Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'%23BE1E2D\'/%3E%3Ctext x=\'15\' y=\'65\' font-family=\'Arial\' font-weight=\'900\' font-size=\'42\' fill=\'white\'%3ELM%3C/text%3E%3C/svg%3E'"><div class="logo-text"><span class="red">Luvhengo</span><span class="charcoal">Motors</span></div></div>
+            <div style="display: flex; align-items: center; gap: 0.6rem;"><button id="themeToggle" class="btn-theme"><i class="fas fa-moon"></i></button><button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button></div>
+            <div class="nav-links" id="navLinks"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#news">News</a><a href="#" class="open-quote-btn" style="color: var(--red); font-weight: 800;">Get Quote</a><a href="#contact">Contact Us</a></div>
         </div>
-        
-        <h1>Optimizing Experience</h1>
-        <p>We are currently refining our connection pathways to ensure peak performance. Access will be restored momentarily.</p>
-        
-        <button class="btn" onclick="window.location.reload();">Check Connection</button>
-    </div>
+    </header>
 
-    <div class="error-code">STATUS_CODE: 200_REFINE</div>
+    <section id="home"><div class="hero-slider"><div class="slides-container" id="slidesContainer"><div class="slide" style="background-image: url('https://images.pexels.com/photos/7464674/pexels-photo-7464674.jpeg?auto=compress&cs=tinysrgb&w=1600');"><div class="slide-content"><h1>Let's get you moving.</h1><p>We handle the heavy lifting while you focus on what matters most, your next chapter.</p><a href="#" class="btn-red open-quote-btn">Get Instant Quote</a></div></div><div class="slide" style="background-image: url('https://images.pexels.com/photos/7415053/pexels-photo-7415053.jpeg?auto=compress&cs=tinysrgb&w=1600');"><div class="slide-content"><h1>Handled with care.</h1><p>Treating your inventory like our own legacy. Professional care for the things you love most.</p><a href="#" class="btn-red open-quote-btn">Get Instant Quote</a></div></div><div class="slide" style="background-image: url('https://images.pexels.com/photos/4569340/pexels-photo-4569340.jpeg?auto=compress&cs=tinysrgb&w=1600');"><div class="slide-content"><h1>Stress-Free Moves.</h1><p>Trusted by hundreds of families for smooth, seamless relocations.</p><a href="#" class="btn-red open-quote-btn">Get Instant Quote</a></div></div></div><div class="slider-arrow arrow-left" id="prevSlide"><i class="fas fa-chevron-left"></i></div><div class="slider-arrow arrow-right" id="nextSlide"><i class="fas fa-chevron-right"></i></div><div class="slider-dots" id="sliderDots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div></div></section>
 
+    <section id="about" class="about-section"><div class="container about-grid"><div class="about-image"><img src="WhatsApp Image 2026-04-11 at 01.11.35_upscaled.png" alt="Team" onerror="this.src='https://images.pexels.com/photos/3768146/pexels-photo-3768146.jpeg?auto=compress&cs=tinysrgb&w=800'"></div><div class="about-text"><h2>We Are <span>Luvhengo Motors</span></h2><p>With over a decade of experience, we bridge the distance with a premium fleet of trucks, bakkies, and trailers. Free packaging materials and full-service packing – we safeguard your peace of mind.</p><a href="#contact" class="btn-outline-red">Contact Us</a></div></div></section>
+
+    <section id="services" class="services-section"><div class="container"><h2 class="section-title">Our Services</h2><div class="title-underline"></div><div class="services-grid"><div class="service-card"><div class="service-icon"><i class="fas fa-home"></i></div><h3>Residential Moves</h3><p>Local home moving with packing & unpacking options.</p><a href="#" class="service-btn open-quote-btn">Get Quote</a></div><div class="service-card"><div class="service-icon"><i class="fas fa-building"></i></div><h3>Office Relocation</h3><p>Minimize downtime with efficient commercial moving.</p><a href="#" class="service-btn open-quote-btn">Get Quote</a></div><div class="service-card"><div class="service-icon"><i class="fas fa-map-marked-alt"></i></div><h3>Long Distance Moves</h3><p>Safe, reliable cross-country moving with tracking.</p><a href="#" class="service-btn open-quote-btn">Get Quote</a></div></div><div class="areas-container"><h3 class="areas-title">📍 We move across South Africa</h3><div class="city-grid"><div class="city-card"><i class="fas fa-city"></i><div class="city-code">JHB</div><div class="city-name">Johannesburg</div></div><div class="city-card"><i class="fas fa-umbrella-beach"></i><div class="city-code">DBN</div><div class="city-name">Durban</div></div><div class="city-card"><i class="fas fa-mountain"></i><div class="city-code">CPT</div><div class="city-name">Cape Town</div></div><div class="city-card"><i class="fas fa-tree"></i><div class="city-code">PLK</div><div class="city-name">Polokwane</div></div><div class="city-card"><i class="fas fa-ship"></i><div class="city-code">EL</div><div class="city-name">East London</div></div><div class="city-card"><i class="fas fa-sun"></i><div class="city-code">BFN</div><div class="city-name">Bloemfontein</div></div></div></div></div></section>
+
+    <section id="news" class="mid-cta-faq"><div class="container"><h2 class="section-title">Latest News & Tips</h2><div class="title-underline"></div><div class="services-grid"><div class="service-card" id="movingTipsCard"><i class="fas fa-newspaper" style="font-size:2.5rem; margin-bottom:1rem; display:block;"></i><h3>Moving Tips</h3><p>5 essential tips to make your move stress-free.</p><button class="service-btn" id="openMovingTips">Learn More</button></div><div class="service-card" id="packingGuideCard"><i class="fas fa-box" style="font-size:2.5rem; margin-bottom:1rem;"></i><h3>Packing Guide</h3><p>How to pack fragile items safely for long moves.</p><button class="service-btn" id="openPackingGuide">Read Guide</button></div><div class="service-card" id="storageCardTrigger"><i class="fas fa-warehouse" style="font-size:2.5rem; margin-bottom:1rem;"></i><h3>Storage Solutions</h3><p>Affordable, secure storage for every need.</p><button class="service-btn" id="openStorageBtn">View Prices</button></div><div class="service-card" id="newsletterCard"><i class="fas fa-envelope-open-text" style="font-size:2.5rem; margin-bottom:1rem;"></i><h3>Monthly Newsletter</h3><p>Declutter your life with secure storage tips.</p><button class="service-btn" id="openNewsletter">Read Now</button></div></div></div></section>
+
+    <section class="mid-cta-faq" style="padding-top:0;"><div class="container"><div class="faq-block"><h3 style="font-size:2rem; margin-bottom:1.5rem;">Frequently Asked Questions</h3><div class="faq-item"><div class="faq-question">How far in advance should I book? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>3-4 days, For both short and long distance.</p></div></div><div class="faq-item"><div class="faq-question">Do you offer packing supplies? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Yes! Free boxes, plastic wrap & bubble wrap are provided as part of our service.</p></div></div><div class="faq-item"><div class="faq-question">Are you licensed and insured? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Fully licensed and insured. Goods in Transit cover up to R50,000 with MiWay Insurance Ltd.</p></div></div><div class="faq-item"><div class="faq-question">What areas do you serve? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>JHB, DBN, CPT, PLK, EL, BFN and all provinces across South Africa.</p></div></div></div></div></section>
+
+    <section class="mid-cta-faq" style="padding-top:0;"><div class="container mid-wrapper"><div class="left-cta"><div class="box-image-cta"><img src="https://images.pexels.com/photos/4246109/pexels-photo-4246109.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Moving boxes"></div><a href="tel:+27662243911" style="text-decoration:none;"><div class="call-now-box"><i class="fas fa-phone-alt" style="font-size:2rem; color:var(--red);"></i><span style="font-weight:800; font-size:1.3rem;">+27 66 224 3911</span><span style="font-weight:500;">Call Us Today</span></div></a></div><div style="flex:1;"></div></div></section>
+
+    <footer id="contact" class="footer"><div class="container"><div class="footer-grid"><div class="footer-logo"><h3><span class="red">Luvhengo</span> Motors</h3><p class="mission">Reliable moving with a personal touch. We handle heavy lifting, you enjoy the smooth move.</p><div class="social-icons"><a href="https://www.facebook.com/profile.php?id=100076895722932" target="_blank"><i class="fab fa-facebook-f"></i></a></div></div><div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#" class="open-quote-btn">Get Quote</a></li><li><a href="#" id="termsLink">Terms & Conditions</a></li><li><a href="#" id="storageFooterLink">Storage Prices</a></li></ul></div><div class="footer-contact"><h4>Contact Details</h4><ul class="contact-list"><li><i class="fas fa-envelope"></i> luvhengomotors@gmail.com</li><li><i class="fas fa-phone-alt"></i> Call / WhatsApp: +27 66 224 3911</li><li><i class="fas fa-map-marker-alt"></i> 39 Stanley Ave, Johannesburg, 2092</li></ul><div class="map-container"><iframe src="https://maps.google.com/maps?q=39%20Stanley%20Ave,%20Johannesburg,%202092&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200" style="border:0;" allowfullscreen=""></iframe></div></div></div><div class="copyright">© 2026 Luvhengo Motors. All Rights Reserved.</div></div></footer>
+
+    <a href="https://wa.me/27662243911" target="_blank" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100076895722932" target="_blank" class="float-fb"><i class="fab fa-facebook-f"></i></a>
+
+    <div id="movingTipsModal" class="modal"><div class="modal-content"><span class="close-modal closeTips">×</span><h2 style="color:var(--red);">📦 5 Stress-Free Moving Tips</h2><div class="tips-content"><p><strong>1. The “Security First” Inventory</strong><br>Before packing, create a digital inventory. Photograph high-value items and serial numbers for insurance purposes.</p><p><strong>2. Strategy Over Speed: Start Early</strong><br>Begin 4-6 weeks in advance. Declutter into "keep," "donate," "discard" piles to reduce workload and cost.</p><p><strong>3. Pack an “Essentials Vault”</strong><br>Pack a bag with documents, chargers, toiletries, and a change of clothes for the first 24 hours. Keep it with you.</p><p><strong>4. Smart Labeling & Room Assignment</strong><br>Label boxes on three sides with contents and room. Colour-code for efficient placement.</p><p><strong>5. Interprovincial Insurance Update</strong><br>Notify your insurer when crossing provinces to update coverage and confirm goods-in-transit protection.</p></div></div></div>
+
+    <div id="packingGuideModal" class="modal"><div class="modal-content"><span class="close-modal closeGuide">×</span><h2 style="color:var(--red);">📦 Professional Packing Guide</h2><div class="guide-content"><p><strong>1. The "Double-Wrap" Protocol</strong><br>Layer 1: industrial plastic wrap seals out dust. Layer 2: premium bubble wrap secured with tape. For hollow items, stuff interior with crumpled paper.</p><p><strong>2. Vertical is Vital (The "Record Player" Rule)</strong><br>Pack plates on their edges like vinyl records. Stemware should be upright, never on sides.</p><p><strong>3. Stop The Glitches</strong><br>Line box bottoms with bubble wrap. Fill every gap with plastic wrap or soft items. No rattling allowed.</p><p><strong>4. Box Integrity</strong><br>Heavy items in small reinforced boxes. Seal bottom seams with an "H" pattern of high-strength tape.</p><p><strong>5. Clear Signs for the Crew</strong><br>Mark "FRAGILE" and "THIS SIDE UP" with arrows on at least two sides of each box.</p></div></div></div>
+
+    <div id="newsletterModal" class="modal"><div class="modal-content"><span class="close-modal closeNewsletter">×</span><h2 style="color:var(--red);">📬 Declutter Your Life: Secure Storage for Every Move</h2><div class="newsletter-content"><p>Sometimes, a move doesn’t happen in a single day. Whether you are moving house, clearing out the garage, or heading off on a long-term travel adventure, Luvhengo Motors provides a safe, clean space for the things that matter most to you.</p><p><strong>Why You Might Need a Little Extra Space:</strong> Between homes, home renovations, decluttering to sell, life transitions.</p><p><strong>The Luvhengo Storage Advantage:</strong> Safety you can trust (24/7 security), we do the heavy lifting (pickup & pack service), flexible & affordable month-to-month contracts, weather-ready protection.</p><p><strong>Need a “Breathe-Easy” Space?</strong> Don’t let boxes take over your life. Give your home some breathing room today – contact us for secure storage.</p><p>— Sinete Nemakonde, Newsletter</p></div></div></div>
+
+    <div id="storageModal" class="modal"><div class="modal-content"><span class="close-modal closeStorage">×</span><h2 style="color:var(--red);">Secure Storage – Monthly Rates</h2><ul style="list-style:none; padding:0;"><li>✓ 200 litres fridge - R300 pm</li><li>✓ Bar fridge - R210 pm</li><li>✓ Microwave - R150 pm</li><li>✓ Storage Bin - R180 pm</li><li>✓ Small box - R70 pm</li><li>✓ Medium Box - R100 pm</li><li>✓ Large Box - R150 pm</li><li>✓ Large Suitcase - R140 pm</li><li>✓ Transport fee (Students) - R200</li><li><strong>We also sell medium boxes: R20 each</strong></li></ul><p>📞 Call +27 66 224 3911 to book storage.</p></div></div>
+
+    <div id="termsModal" class="modal"><div class="modal-content"><span class="close-modal closeTerms">×</span><h2 style="color:var(--red);">LUVHENGO MOTORS – TERMS & CONDITIONS</h2><div><p><strong>1. SERVICES:</strong> Moving, packing/unpacking, loading, transportation. Free packaging materials: medium boxes, plastic wrap, bubble wrap.</p><p><strong>2. BOOKINGS & PAYMENTS:</strong> 50% deposit required 1 day before move. Balance due 1 hour before collection. Long-distance: no cash. Short-distance cash incurs R50 fee. Proof to luvhengomotors@gmail.com. Quotes valid 30 days.</p><p><strong>3. INSURANCE:</strong> Goods in Transit cover up to R50,000 (MiWay). Extra cover on request.</p><p><strong>4. CANCELLATION:</strong> Within 48 hours forfeits deposit.</p><p><strong>5. LIABILITY:</strong> Client declares item value; fragile items must be disclosed.</p></div><p>By booking, you accept these terms.</p></div></div>
+
+    <div id="quoteModalWrapper" class="modal"><div class="modal-content quote-modal-content"><span class="close-modal" id="closeQuoteModal" style="background:var(--red); color:white; border-radius:50%; width:35px; height:35px;">×</span><div class="app-wrapper"><header><h1>LUVHENGO <span>MOTORS</span></h1><p style="font-size:0.8rem;">PRO QUOTE + DELIVERY FEE • AUTO WA DISPATCH</p></header><form id="quote-form"><div class="section-card"><h3>1. Route & Delivery Fee</h3><div class="static-pickup">📍 <strong>Pick up Province:</strong> Gauteng (Johannesburg / Pretoria)</div><input type="text" name="pickup_address" id="pickAddr" placeholder="Pick up address" class="field" required><select id="dropCitySelect" class="city-select" required><option value="0">-- Select Destination City --</option><option value="750">JHB to JHB (local) (R750)</option><option value="15000">Bhisho (R15,000)</option><option value="15000">East London (R15,000)</option><option value="15000">Mthatha (R15,000)</option><option value="5500">Bloemfontein (R5,500)</option><option value="1500">Pretoria (R1,500)</option><option value="7000">Pietermaritzburg (R7,000)</option><option value="7000">Durban (R7,000)</option><option value="5000">Polokwane (R5,000)</option><option value="5000">Nelspruit (R5,000)</option><option value="3000">Witbank (R3,000)</option><option value="8000">Kimberley (R8,000)</option><option value="23000">Cape Town (R23,000)</option></select><input type="text" name="dropoff_address" id="dropAddr" placeholder="Drop off address" class="field" required><input type="date" name="moving_date" id="mDate" class="field" required><div id="distanceFeeDisplay" class="distance-fee-row"><span>🚚 Delivery Fee:</span><span>R <span id="distanceFeeAmount">0</span></span></div></div><div class="section-card"><h3>2. Furniture & Appliances</h3><div id="item-list"></div></div><div class="section-card"><h3>3. Custom / Other Items</h3><div id="customItemContainer"><div class="item-box"><input type="checkbox" id="customCheck"><div style="flex:2;"><input type="text" id="customDesc" placeholder="Describe item (e.g., Mattress, Box)" class="custom-desc"></div><div class="item-main"><span class="item-sub">R50 / box</span></div><input type="number" id="customQty" value="1" min="1" class="qty-box"></div></div><small>✔️ Check box to include custom item. R50 per box.</small></div><div class="section-card"><h3>4. Contact Details</h3><input type="text" name="client_name" id="cName" placeholder="Full Name" class="field" required><input type="email" name="email" id="cEmail" placeholder="Email" class="field" required><input type="tel" name="phone" id="cPhone" placeholder="Phone Number" class="field" required><input type="hidden" id="hiddenTotal"><input type="hidden" id="hiddenItems"></div></form><div class="action-bar"><div class="total-display"><div>VAT Included (15%)</div><div class="total-amt">R <span id="valTotal">0.00</span></div></div><button type="button" onclick="processQuote()" class="btn-submit">📄 Download & Send Quote (PDF + WA Auto)</button></div></div></div></div>
+
+    <script>
+        // Theme, mobile, slider
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click',()=>{ document.body.classList.toggle('dark-mode'); const icon=themeToggle.querySelector('i'); if(document.body.classList.contains('dark-mode')) icon.classList.replace('fa-moon','fa-sun'); else icon.classList.replace('fa-sun','fa-moon');});
+        document.getElementById('mobileMenuBtn').onclick = ()=> document.getElementById('navLinks').classList.toggle('active');
+        const slidesContainer=document.getElementById('slidesContainer'),prev=document.getElementById('prevSlide'),next=document.getElementById('nextSlide'),dots=document.querySelectorAll('.dot');
+        let idx=0, autoInterval;
+        function goSlide(i){ if(i<0) i=2; else if(i>2) i=0; idx=i; slidesContainer.style.transform=`translateX(-${idx*33.333}%)`; dots.forEach((d,ii)=>d.classList.toggle('active',ii===idx)); }
+        prev.addEventListener('click',()=>{ goSlide(idx-1); resetInterval(); }); next.addEventListener('click',()=>{ goSlide(idx+1); resetInterval(); });
+        dots.forEach((d,i)=>{ d.addEventListener('click',()=>{ goSlide(i); resetInterval(); }); });
+        function resetInterval(){ if(autoInterval) clearInterval(autoInterval); autoInterval=setInterval(()=>goSlide(idx+1),6000); } resetInterval();
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', function() { const item = this.parentElement; item.classList.toggle('active'); const icon = this.querySelector('i'); if(item.classList.contains('active')) icon.classList.replace('fa-plus','fa-minus'); else icon.classList.replace('fa-minus','fa-plus'); }); });
+
+        // Modals triggers
+        const tipsModal = document.getElementById('movingTipsModal'), guideModal = document.getElementById('packingGuideModal'), newsletterModal = document.getElementById('newsletterModal'), storageModal = document.getElementById('storageModal'), termsModal = document.getElementById('termsModal');
+        document.getElementById('openMovingTips').onclick = (e) => { e.preventDefault(); tipsModal.style.display = 'block'; };
+        document.getElementById('openPackingGuide').onclick = (e) => { e.preventDefault(); guideModal.style.display = 'block'; };
+        document.getElementById('openNewsletter').onclick = (e) => { e.preventDefault(); newsletterModal.style.display = 'block'; };
+        document.getElementById('openStorageBtn').onclick = (e) => { e.preventDefault(); storageModal.style.display = 'block'; };
+        document.getElementById('storageFooterLink').onclick = (e) => { e.preventDefault(); storageModal.style.display = 'block'; };
+        document.getElementById('termsLink').onclick = (e) => { e.preventDefault(); termsModal.style.display = 'block'; };
+        document.querySelectorAll('.closeTips, .closeGuide, .closeNewsletter, .closeStorage, .closeTerms').forEach(btn => { btn.onclick = function(){ tipsModal.style.display='none'; guideModal.style.display='none'; newsletterModal.style.display='none'; storageModal.style.display='none'; termsModal.style.display='none'; }; });
+        window.onclick = function(e) { if(e.target.classList && e.target.classList.contains('modal')) e.target.style.display='none'; if(e.target == document.getElementById('quoteModalWrapper')) document.getElementById('quoteModalWrapper').style.display='none'; };
+
+        // Quote logic (full functional)
+        const inventory = [{ n: "Fridge (Single Door)", p: 450 },{ n: "Fridge (Double Door)", p: 900 },{ n: "Washing Machine", p: 300 },{ n: "Tumble Dryer", p: 300 },{ n: "Dishwasher", p: 300 },{ n: "L-Shape Couch", p: 600 },{ n: "Couch Chairs (Pair)", p: 400 },{ n: "Bed (Standard)", p: 300 },{ n: "3/4 Bed", p: 200 },{ n: "Television", p: 800 },{ n: "Television Stand", p: 500 },{ n: "Dining Table & Chairs", p: 900 },{ n: "Chest Drawer", p: 120 },{ n: "Desk", p: 130 },{ n: "Table", p: 300 },{ n: "Coffee Table", p: 300 },{ n: "Outdoor Patio Set", p: 900 },{ n: "Storage Bins (110L)", p: 200 },{ n: "Moving Boxes", p: 350 },{ n: "Labor (Loading/Offloading)", p: 200 }];
+        const listDiv = document.getElementById('item-list');
+        inventory.forEach((item,i)=>{ const row=document.createElement('div'); row.className='item-box'; row.innerHTML=`<input type="checkbox" class="tick" onchange="calcTotal()"><div class="item-main"><span class="item-name">${item.n}</span><span class="item-sub">R${item.p}</span></div><input type="number" value="1" min="1" class="qty-box" onchange="calcTotal()">`; listDiv.appendChild(row); });
+        let currentDistanceFee=0;
+        function getStandardItemsTotal(){ let total=0; document.querySelectorAll('#item-list .item-box').forEach((box,idx)=>{ if(box.querySelector('.tick').checked){ let qty=parseInt(box.querySelector('.qty-box').value)||0; total+=inventory[idx].p*qty; } }); return total; }
+        function getCustomItemTotal(){ const chk=document.getElementById('customCheck'); if(!chk.checked) return 0; const desc=document.getElementById('customDesc').value.trim(); if(desc==="") return 0; let qty=parseInt(document.getElementById('customQty').value)||0; return qty*50; }
+        function getCustomItemDetails(){ const chk=document.getElementById('customCheck'); if(!chk.checked) return null; let desc=document.getElementById('customDesc').value.trim(); if(desc==="") return null; let qty=parseInt(document.getElementById('customQty').value)||0; return { name:desc, qty, unitPrice:50, total:qty*50 }; }
+        function updateDistanceFee(){ const select=document.getElementById('dropCitySelect'); currentDistanceFee=parseFloat(select.value)||0; const feeDiv=document.getElementById('distanceFeeDisplay'); if(currentDistanceFee>0){ feeDiv.style.display='flex'; document.getElementById('distanceFeeAmount').innerText=currentDistanceFee.toFixed(2); } else feeDiv.style.display='none'; calcTotal(); }
+        function calcTotal(){ let base=getStandardItemsTotal()+getCustomItemTotal()+currentDistanceFee; document.getElementById('valTotal').innerText=base.toFixed(2); document.getElementById('hiddenTotal').value=`R${base.toFixed(2)}`; }
+        function getAllSelectedItems(){ let items=[]; document.querySelectorAll('#item-list .item-box').forEach((box,idx)=>{ if(box.querySelector('.tick').checked){ let qty=parseInt(box.querySelector('.qty-box').value)||0; items.push({ name:inventory[idx].n, price:inventory[idx].p, qty, lineTotal:inventory[idx].p*qty }); } }); let custom=getCustomItemDetails(); if(custom) items.push({ name:`[Custom] ${custom.name}`, price:50, qty:custom.qty, lineTotal:custom.total }); return items; }
+        async function generateAndGetPDFBlob(clientName, pickupAddr, dropAddr, dropCitySel, distanceFee, items, finalTotal, movingDate){ const { jsPDF } = window.jspdf; const doc = new jsPDF(); doc.setFontSize(20); doc.setTextColor(232,0,29); doc.setFont("helvetica","bold"); doc.text("LUVHENGO MOTORS MOVING QUOTE",105,22,null,"center"); doc.setFontSize(10); doc.setTextColor(80,80,80); doc.text("Johannesburg Branch | +27 66 224 3911 | luvhengomotors@gmail.com",105,30,null,"center"); doc.line(10,35,200,35); doc.setFontSize(11); doc.setTextColor(0); doc.setFont(undefined,"bold"); doc.text("Client:",14,45); doc.setFont(undefined,"normal"); doc.text(clientName,30,45); doc.text("Pickup:",14,52); doc.text(pickupAddr,30,52); doc.text("Drop-off:",14,59); doc.text(`${dropAddr}, ${dropCitySel}`,35,59); doc.text("Date:",140,45); doc.text(movingDate,155,45); const tableRows=items.map(i=>[i.name,i.qty,`R${i.price.toFixed(2)}`,`R${i.lineTotal.toFixed(2)}`]); doc.autoTable({ startY:65, head:[['Item','Qty','Unit','Total']], body:tableRows, theme:'grid', headStyles:{ fillColor:[232,0,29], textColor:255 } }); let finalY=doc.lastAutoTable.finalY+8; if(distanceFee>0){ doc.text(`Delivery Fee (${dropCitySel}):`,14,finalY); doc.text(`R${distanceFee.toFixed(2)}`,160,finalY,null,"right"); finalY+=7; } doc.setFontSize(12); doc.setFont(undefined,"bold"); doc.setTextColor(232,0,29); doc.text(`GRAND TOTAL (VAT INCL): R${finalTotal.toFixed(2)}`,14,finalY+10); doc.setFontSize(10); doc.setTextColor(0); doc.text("BANKING DETAILS:",14,finalY+22); doc.text("Absa Bank | Luvhengo Motors | Acc: 4108874414 | Branch: 632005",14,finalY+29); doc.save(`Luvhengo_Invoice_${clientName.replace(/\s/g,'_')}.pdf`); return doc.output('blob'); }
+        async function sendPDFtoWhatsAppAuto(clientName, phone, email, pickupAddr, dropAddr, dropCity, distanceFee, finalTotal, itemsList, pdfBlob, movingDate){ const pdfUrl = URL.createObjectURL(pdfBlob); let itemsSummary = itemsList.map(i=>`- ${i.name} x${i.qty} = R${i.lineTotal.toFixed(2)}`).join("%0A"); let distanceLine = distanceFee>0? `🚚 Delivery Fee (${dropCity}): R${distanceFee}%0A` : ""; let vatAmount = (finalTotal - (finalTotal/1.15)).toFixed(2); const message = `🏢 *LUVHENGO MOTORS - NEW QUOTE* 🏢%0A%0A👤 *Client:* ${clientName}%0A📞 *Phone:* ${phone}%0A✉️ *Email:* ${email}%0A📅 *Moving Date:* ${movingDate}%0A📍 *Pickup:* ${pickupAddr}, Gauteng%0A🏁 *Dropoff:* ${dropAddr}, ${dropCity}%0A%0A📦 *Selected Items:* %0A${itemsSummary}%0A${distanceLine}✅ *FINAL TOTAL:* R${finalTotal.toFixed(2)}%0A🧾 *VAT (15%):* R${vatAmount}%0A%0A📎 *INVOICE PDF:* ${pdfUrl}`; window.open(`https://wa.me/27662243911?text=${message}`,'_blank'); setTimeout(()=>URL.revokeObjectURL(pdfUrl),60000); }
+        window.processQuote = async function(){ const clientName = document.getElementById('cName').value.trim(), clientEmail = document.getElementById('cEmail').value.trim(), clientPhone = document.getElementById('cPhone').value.trim(); const pickupAddr = document.getElementById('pickAddr').value.trim(), dropAddr = document.getElementById('dropAddr').value.trim(); const dropSelect = document.getElementById('dropCitySelect'); const dropCityFull = dropSelect.options[dropSelect.selectedIndex]?.text || "", movingDate = document.getElementById('mDate').value; if(!clientName||!clientEmail||!clientPhone||!pickupAddr||!dropAddr||dropSelect.value==="0"||!movingDate){ alert("❌ Please fill all fields"); return; } const selectedItems = getAllSelectedItems(); const finalTotalVal = parseFloat(document.getElementById('valTotal').innerText); const pdfBlob = await generateAndGetPDFBlob(clientName, pickupAddr, dropAddr, dropCityFull.split(' (R')[0], currentDistanceFee, selectedItems, finalTotalVal, movingDate); await sendPDFtoWhatsAppAuto(clientName, clientPhone, clientEmail, pickupAddr, dropAddr, dropCityFull.split(' (R')[0], currentDistanceFee, finalTotalVal, selectedItems, pdfBlob, movingDate); alert("✅ Quote generated & sent to business WhatsApp + PDF downloaded."); };
+        document.getElementById('dropCitySelect').addEventListener('change', updateDistanceFee); document.getElementById('customCheck').addEventListener('change', calcTotal); document.getElementById('customDesc').addEventListener('input', calcTotal); document.getElementById('customQty').addEventListener('input', calcTotal);
+        document.querySelectorAll('.open-quote-btn').forEach(btn=> btn.addEventListener('click',(e)=>{ e.preventDefault(); document.getElementById('quoteModalWrapper').style.display='block'; }));
+        document.getElementById('closeQuoteModal').onclick = ()=> document.getElementById('quoteModalWrapper').style.display='none';
+        updateDistanceFee(); calcTotal();
+    </script>
 </body>
 </html>
+
